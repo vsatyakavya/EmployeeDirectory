@@ -2,7 +2,7 @@ import React from "react";
 
 function EmployeeDetail(props) {
   return (
-    <tr key={props.emp.email}>
+    <tr id={props.emp.email}>
       
       <td>{props.emp.name.first}</td>
       <td>{props.emp.name.last}</td>
