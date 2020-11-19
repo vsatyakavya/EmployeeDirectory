@@ -7,7 +7,8 @@ import API from "../utils/API";
 class EmployeeContainer extends Component {
    state = {
       result :[],
-      search :""
+      search :"",
+      originalData :[]
    }
  componentDidMount(){
     this.searchEmployees();
@@ -15,7 +16,9 @@ class EmployeeContainer extends Component {
 
 searchEmployees = ()=>{
     API.search()
-      .then(res => this.setState({ result: res.data.results } )
+      .then(res => this.setState({ result: res.data.results ,
+        originalData : res.data.results} 
+     )
       ).catch(err => console.log(err));
 }
 handleInputChange = event=>{
@@ -37,7 +40,7 @@ handleFormSubmit = event =>{
 getOneEmployee =(empName)  =>{
     console.log("this i emp---------",empName)
    var employees= this.state.result
-   var  searchedEmployee =employees.filter(emp =>emp.name.first ===empName)
+   var  searchedEmployee =employees.filter(emp =>emp.name.first.toLowerCase() ===empName.toLowerCase())
     console.log(searchedEmployee);
     if(empName) {
         this.setState({
@@ -45,7 +48,7 @@ getOneEmployee =(empName)  =>{
         })
     } else {
         this.setState ({
-            result: employees
+            result: this.state.originalData
         })
     }
 
