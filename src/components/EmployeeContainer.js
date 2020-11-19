@@ -1,5 +1,6 @@
 import React , {Component} from "react";
 // import API from "../utils.API";
+import EmployeeDetail from "./EmployeeDetail";
 import API from "../utils/API";
 
 class EmployeeContainer extends Component {
@@ -22,16 +23,13 @@ searchEmployees = ()=>{
 
 render(){
     var employees = this.state.result;
-    var i =0 ;
+    
     return (
         
             
-        //   <li className="list-group-item" key={employee.email}>
-        //     {employee.gender}
-            
-        //    </li>
-        <table class="table" >
-  <thead class="thead-dark">
+       
+        <table className="table" >
+  <thead className="thead-dark">
     <tr>
       
       <th scope="col">First Name</th>
@@ -44,15 +42,21 @@ render(){
   <tbody>
 
   {employees.map(employee => (
+    <EmployeeDetail 
+    
+    emp = {employee}
+    
+    
+    
+    />
+    // <tr>
+    //   <td>{employee.index}</td>
+    //   <td>{employee.name.first}</td>
+    //   <td>{employee.name.last}</td>
+    //   <td>{employee.email}</td>
+    //   <td>{employee.location.city}</td>
 
-    <tr>
-      <td>{employee.index}</td>
-      <td>{employee.name.first}</td>
-      <td>{employee.name.last}</td>
-      <td>{employee.email}</td>
-      <td>{employee.location.city}</td>
-
-    </tr>
+    // </tr>
    ))}
   </tbody>
 </table>
