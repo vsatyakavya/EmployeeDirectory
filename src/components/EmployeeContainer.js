@@ -21,16 +21,15 @@ searchEmployees = ()=>{
 
 
 render(){
-    var items = this.state.result;
+    var employees = this.state.result;
     return (
         <ul className="list-group">
-        {items.map(item => (
-
-          <li className="list-group-item" key={item.email}>
-            {item.gender}
+        {employees.map(employee => (
             
-          </li>
-          
+          <li className="list-group-item" key={employee.email}>
+            {employee.gender}
+            
+           </li>
         ))}
       </ul>
     )
