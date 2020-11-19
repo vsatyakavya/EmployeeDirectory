@@ -15,9 +15,10 @@ function SortEmployees(props){
               id ="search"
                />
                 <br />
-                <button onClick ={props.sortEmployees} className = "btn btn-success">Submit</button>
-          </div>
-      </form>
+    
+                <button  onClick ={props.sortEmployees} className = "btn btn-success btn-md">Sort Employees</button>
+              </div>  
+     </form>
     )
 }
 

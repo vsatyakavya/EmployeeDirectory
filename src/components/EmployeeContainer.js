@@ -2,6 +2,7 @@ import React , {Component} from "react";
 import SearchForm from "./SearchForm";
 import SortEmployees from "./SortEmployees";
 import EmployeeDetail from "./EmployeeDetail";
+import Container from "./Container";
 
 import API from "../utils/API";
 
@@ -10,7 +11,8 @@ class EmployeeContainer extends Component {
       result :[],
       search :"",
       sort : "",
-      originalData :[]
+      originalData :[],
+      message : "No employees with this first name"
    }
  componentDidMount(){
     this.searchEmployees();
@@ -48,7 +50,14 @@ getOneEmployee =(empName)  =>{
         this.setState({
             result : searchedEmployee
         })
-    } else {
+    }
+    // else if(searchedEmployee.length ===0){
+    //   this.setState({
+    //     result :this.statemessage
+    //   })
+    // }
+        
+    else {
         this.setState ({
             result: this.state.originalData
         })
@@ -74,18 +83,30 @@ render(){
     var employees = this.state.result;
     
     return (
+     
         <div>
+        <Container>
+        <Container>
+       
         <SearchForm 
         value = {this.state.search}
         handleInputChange ={this.handleInputChange}
         handleFormSubmit ={this.handleFormSubmit}
         
         />
-        <SortEmployees 
+              
+              <SortEmployees 
         value = {this.state.sort}
         handleInputChange ={this.handleInputChange}
          sortEmployees = {this.sortEmployees}
         />
+
+        
+
+        
+              
+
+        </Container>
 
  <table className="table" >
   <thead className="thead-dark">
@@ -108,7 +129,9 @@ render(){
    ))}
   </tbody>
 </table>
+</Container>
 </div>
+
         
       
     )
