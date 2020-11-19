@@ -1,5 +1,6 @@
 import React , {Component} from "react";
-import SearchForm from "./SearchForm"
+import SearchForm from "./SearchForm";
+import SortEmployees from "./SortEmployees";
 import EmployeeDetail from "./EmployeeDetail";
 
 import API from "../utils/API";
@@ -8,6 +9,7 @@ class EmployeeContainer extends Component {
    state = {
       result :[],
       search :"",
+      sort : "",
       originalData :[]
    }
  componentDidMount(){
@@ -54,6 +56,19 @@ getOneEmployee =(empName)  =>{
 
 }
 
+sortEmployees = event =>{
+  event.preventDefault();
+  var colName = this.state.sort;
+  console.log("this is colName" + colName);
+  var orgData = this.state.originalData;
+  console.log(orgData);
+
+ orgData.sort((a, b) => (a.email > b.email) ? 1 : -1)
+ console.log(orgData);
+   this.setState({
+     result : orgData
+   })
+}
 
 render(){
     var employees = this.state.result;
@@ -66,6 +81,12 @@ render(){
         handleFormSubmit ={this.handleFormSubmit}
         
         />
+        <SortEmployees 
+        value = {this.state.sort}
+        handleInputChange ={this.handleInputChange}
+         sortEmployees = {this.sortEmployees}
+        />
+
  <table className="table" >
   <thead className="thead-dark">
     <tr>
