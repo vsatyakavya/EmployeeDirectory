@@ -22,16 +22,42 @@ searchEmployees = ()=>{
 
 render(){
     var employees = this.state.result;
+    var i =0 ;
     return (
-        <ul className="list-group">
-        {employees.map(employee => (
+        
             
-          <li className="list-group-item" key={employee.email}>
-            {employee.gender}
+        //   <li className="list-group-item" key={employee.email}>
+        //     {employee.gender}
             
-           </li>
-        ))}
-      </ul>
+        //    </li>
+        <table class="table" >
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Location</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {employees.map(employee => (
+
+    <tr>
+      <td>{employee.index}</td>
+      <td>{employee.name.first}</td>
+      <td>{employee.name.last}</td>
+      <td>{employee.email}</td>
+      <td>{employee.location.city}</td>
+
+    </tr>
+   ))}
+  </tbody>
+</table>
+        
+      
     )
   }
 }
