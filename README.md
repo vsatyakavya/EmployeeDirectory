@@ -1,12 +1,17 @@
 # Employee Directory
 
 # Application Does:
-* This is a react application of Employee details.It is helpful to view the employee details in a table,to get particular employee details and to sort employees details.So,user has quick access to employee details.Use axios to get information from randomuser API.
+* This is a react application of Employee details.So, User can have quick access to employee details.
 
 # Technologies used:
 * React , bootstrap, axios, css
 
-
+# Features
+* Display employee details in table
+* Search employee by name
+* Partial search
+* Sort employees by name, email,location
+* Bootstrap features(hover,for, table,dropdown)
 
 
 
