@@ -11,7 +11,7 @@
 * Search employee by name
 * Partial search
 * Sort employees by name, email,location
-* Bootstrap features(hover,for, table,dropdown)
+* Bootstrap features(hover,form, table,dropdown)
 
 
 
