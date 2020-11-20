@@ -1,19 +1,14 @@
-// import React from "react";
 
-// function Container(props) {
-//   return <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} />;
-// }
-
-// export default Container;
 
 import React from "react";
 const styles ={
   bg :{
-    //  backgroundColor : "#B0E0E6",
+      backgroundColor : "#9694DA",
     borderRadius  : 20,
-    //  color : "white",
-    padding : 10,
+      color : "white",
+    padding : 40,
     marginBottom :10,
+    fontSize :20
 
 
   }

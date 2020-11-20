@@ -46,8 +46,6 @@ handleInputChange = event=>{
 handleFormSubmit = event =>{
     event.preventDefault();
      this.getOneEmployee(this.state.search)
-    //  var a = this.state.search
-    // console.log("this is new search value "+a)
     
 }
 
@@ -56,11 +54,10 @@ getOneEmployee =(empName)  =>{
    var employees= this.state.originalData
 
   var  searchedEmployee =employees.filter(emp =>(emp.firstName.toLowerCase()+" "+emp.lastName.toLowerCase()).includes(empName.toLowerCase()))
-  // var  searchedEmployee =employees.filter(emp =>emp.firstName.toLowerCase().includes(empName.toLowerCase()))
 
     console.log(searchedEmployee);
     if(searchedEmployee.length === 0){
-      
+
     }
     if(empName) {
         this.setState({
@@ -99,7 +96,7 @@ render(){
      
         <div>
         <Container>
-        <Container>
+        
        
         <SearchForm 
         value = {this.state.search}
@@ -119,9 +116,9 @@ render(){
         
               
 
-        </Container>
+        
 
- <table className="table" >
+ <table className="table text-white text large table-hover " >
   <thead className="thead-dark">
     <tr>
       

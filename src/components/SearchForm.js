@@ -1,12 +1,16 @@
 import React from "react";
 
-
+const styles={
+test:{
+    color :"white"
+}
+}
 function SearchForm(props){
     return (
-      <form>
+      <form style ={styles.test}>
           <div className="form-group">
-              <label htmlFor = "search">Search By Employee FirstName</label>
-              <input
+              <label  htmlFor = "search">Search employee by name</label>
+              <input   
               value = {props.value}
               name = "search"
               onChange = {props.handleInputChange}
@@ -16,7 +20,9 @@ function SearchForm(props){
               id ="search"
                />
                 <br />
-                <button onClick ={props.handleFormSubmit} className = "btn btn-success">Submit</button>
+                <div class="text-center">
+                <button  onClick ={props.handleFormSubmit} className = "btn btn-success large">Submit</button>
+                </div>
           </div>
       </form>
     )
