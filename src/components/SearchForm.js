@@ -2,7 +2,9 @@ import React from "react";
 
 const styles={
 test:{
-    color :"white"
+    color :"white",
+    
+    
 }
 }
 function SearchForm(props){
@@ -21,7 +23,7 @@ function SearchForm(props){
                />
                 <br />
                 <div class="text-center">
-                <button  onClick ={props.handleFormSubmit} className = "btn btn-success large">Submit</button>
+                <button  onClick ={props.handleFormSubmit} className = "btn btn-success btn-lg">Submit</button>
                 </div>
           </div>
       </form>

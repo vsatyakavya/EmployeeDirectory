@@ -6,7 +6,7 @@ const styles ={
       backgroundColor : "#9694DA",
     borderRadius  : 20,
       color : "white",
-    padding : 40,
+    padding : 50,
     marginBottom :10,
     fontSize :20
 

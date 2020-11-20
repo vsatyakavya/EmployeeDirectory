@@ -1,7 +1,8 @@
 import React from "react";
 const styles ={
     space :{
-        marginBottom :100
+        marginBottom :100,
+        
     }
 }
 function SortEmployees(props){
@@ -10,7 +11,8 @@ function SortEmployees(props){
     <div >
     <label>Sort Employees</label>
     <br />
-    <select style ={styles.space}  onChange ={props.sortEmployees}>
+    <select style ={styles.space} class="custom-select" 
+         onChange ={props.sortEmployees}>
         <option   value ="firstName">First name</option>
         <option   value ="lastName">Last Name</option>
 
