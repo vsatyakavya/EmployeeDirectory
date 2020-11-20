@@ -4,7 +4,7 @@
 * This is a react application of Employee details.So, User can have quick access to employee details.
 
 # Technologies used:
-* React , bootstrap, axios, css
+* React , Bootstrap, axios, css
 
 # Features
 * Display employee details in table
