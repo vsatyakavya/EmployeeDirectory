@@ -20,9 +20,19 @@ class EmployeeContainer extends Component {
 
 searchEmployees = ()=>{
     API.search()
-      .then(res => this.setState({ result: res.data.results ,
-        originalData : res.data.results} 
-     )
+      .then(res => 
+        {
+          let mappedEmployees = res.data.results.map(data => ({
+            firstName : data.name.first,
+            lastName : data.name.last,
+            location : data.location.city,
+            email : data.email
+          }))
+          this.setState({ result: mappedEmployees,
+            originalData : mappedEmployees} 
+            )
+
+        }
       ).catch(err => console.log(err));
 }
 handleInputChange = event=>{
@@ -43,20 +53,22 @@ handleFormSubmit = event =>{
 
 getOneEmployee =(empName)  =>{
     console.log("this i emp---------",empName)
-   var employees= this.state.result
-   var  searchedEmployee =employees.filter(emp =>emp.name.first.toLowerCase() ===empName.toLowerCase())
+   var employees= this.state.originalData
+
+  var  searchedEmployee =employees.filter(emp =>(emp.firstName.toLowerCase()+" "+emp.lastName.toLowerCase()).includes(empName.toLowerCase()))
+  // var  searchedEmployee =employees.filter(emp =>emp.firstName.toLowerCase().includes(empName.toLowerCase()))
+
     console.log(searchedEmployee);
+    if(searchedEmployee.length === 0){
+      
+    }
     if(empName) {
         this.setState({
             result : searchedEmployee
         })
     }
-    // else if(searchedEmployee.length ===0){
-    //   this.setState({
-    //     result :this.statemessage
-    //   })
-    // }
-        
+    
+ 
     else {
         this.setState ({
             result: this.state.originalData
@@ -67,12 +79,13 @@ getOneEmployee =(empName)  =>{
 
 sortEmployees = event =>{
   event.preventDefault();
-  var colName = this.state.sort;
+
+  var colName = event.target.value;
   console.log("this is colName" + colName);
   var orgData = this.state.originalData;
   console.log(orgData);
 
- orgData.sort((a, b) => (a.email > b.email) ? 1 : -1)
+ orgData.sort((a, b) => (a[colName] > b[colName]) ? 1 : -1)
  console.log(orgData);
    this.setState({
      result : orgData
